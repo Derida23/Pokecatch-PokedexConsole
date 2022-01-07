@@ -21,9 +21,6 @@ const ListPage: React.FC = () => {
   });
 
   const GetPokemons = () => {
-    console.log("DATA POKE -> ", data.pokemons.results);
-    console.log("DATA POKE -> ", filter.page);
-
     setMaster(data);
 
     if (filter.page === 1) {
@@ -33,10 +30,9 @@ const ListPage: React.FC = () => {
 
   const AddPokemons = (fetchMoreResult: IListPokemon) => {
     const vanilla = JSON.parse(JSON.stringify(pokemons));
+
     vanilla.push(...(fetchMoreResult?.pokemons?.results ?? []));
     setPokemons(vanilla);
-
-    console.log("VANILLA", vanilla);
   };
 
   const onPage = (page: number) => {
@@ -53,7 +49,7 @@ const ListPage: React.FC = () => {
 
   return (
     <div>
-      <ListComponent />
+      <ListComponent props={{ master, pokemons, loading, filter, onPage }} />
     </div>
   );
 };
