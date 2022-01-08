@@ -14,7 +14,7 @@ function isBottom(ref: React.RefObject<HTMLDivElement>) {
   return ref.current.getBoundingClientRect().bottom <= window.innerHeight;
 }
 
-export const InfiniteScroll: FC<Props> = ({
+export const InfiniteScrollWeb: FC<Props> = ({
   onBottomHit,
   isLoading,
   hasMoreData,

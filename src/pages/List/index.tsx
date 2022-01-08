@@ -8,7 +8,7 @@ const ListPage: React.FC = () => {
   const [master, setMaster] = useState<IListPokemon>({});
   const [pokemons, setPokemons] = useState<Array<IPokemons>>([]);
   const [filter, setFilter] = useState<IFilterGet>({
-    page: 1,
+    page: 0,
     limit: 21,
     offset: 0,
   });
