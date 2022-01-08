@@ -16,7 +16,7 @@ interface Props {
   onInput: (e: ChangeEvent<HTMLInputElement>) => void;
 }
 
-const CatchModal: FC<Props> = ({
+const PokeModal: FC<Props> = ({
   isOpen,
   onClose,
   alert,
@@ -89,4 +89,4 @@ const CatchModal: FC<Props> = ({
   );
 };
 
-export default CatchModal;
+export default PokeModal;
