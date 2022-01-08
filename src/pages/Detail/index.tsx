@@ -10,7 +10,7 @@ const DetailPage: React.FC = () => {
   const [pokemon, setPokemon] = useState<IDetail | null>(null);
   const [isTab, setTab] = useState<number>(1);
 
-  const { error, loading, data } = useQuery(DETAIL_POKEMON, {
+  const { loading, data } = useQuery(DETAIL_POKEMON, {
     notifyOnNetworkStatusChange: true,
     variables: { name: location.pathname.split("/")[2] },
     fetchPolicy: "network-only",
