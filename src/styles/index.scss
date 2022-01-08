@@ -160,3 +160,30 @@ code {
 .z-index {
   z-index: -1;
 }
+
+.moves-scroll::-webkit-scrollbar {
+  border-radius: 16px;
+  width: 12px;
+  padding-left: 10px;
+  // background-color: #f5f8fa;
+}
+
+.moves-scroll::-webkit-scrollbar-thumb {
+  border-radius: 16px;
+  background-color: #bebebe;
+}
+
+.moves-scroll::-webkit-scrollbar-track {
+  border-radius: 16px;
+  background-color: transparent;
+}
+
+.moves-scroll::-webkit-scrollbar-track-piece:end {
+  border-radius: 16px;
+  margin-bottom: 200px;
+  background-color: #f5f8fa;
+}
+.moves-scroll::-webkit-scrollbar-track-piece:start {
+  border-radius: 16px;
+  background-color: #f5f8fa;
+}

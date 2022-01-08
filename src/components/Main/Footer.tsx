@@ -12,7 +12,7 @@ const Footer = () => {
         >
           Arian Derida
         </a>
-        © Copyright 2021 Pokecatch | Tokopedia
+        © Copyright 2021 Pokecatch
       </p>
     </footer>
   );

@@ -30,15 +30,15 @@ const DetailComponent: FC<Props> = ({ props }) => {
         </title>
         <link rel="Pokecatch" href="https://pokecatch-tokopedia.netlify.app/" />
       </Helmet>
-      <main className="mb-8 -mt-20">
-        <div className="grid grid-rows-1 grid-cols-2 gap-8 mb-8">
+      <main className="mb-8 -mt-8 lg:-mt-20">
+        <div className="grid grid-rows-1 grid-cols-1 lg:grid-cols-2 gap-8 mb-8">
           <div>
             <div className="flex items-center justify-center ">
               {loading ? (
                 <Loader props={{ text: false }} />
               ) : (
                 <div className="relative w-full ">
-                  <div className="absolute right-52 inset-y-24 z-index">
+                  <div className="absolute right-10 lg:right-52 inset-y-24 z-index">
                     <img src={"/assets/poke-shadow.png"} alt="pokeball" />
                   </div>
                   <div className="absolute  bottom-0 left-24 ">
@@ -72,7 +72,7 @@ const DetailComponent: FC<Props> = ({ props }) => {
                 </div>
               )}
             </div>
-            <div className="flex items-center justify-center mt-4">
+            <div className="flex items-center justify-center mt-6 lg:mt-4">
               <div className="card-catch px-5 py-2 hover:bg-yellow-400 flex items-center justfy-between">
                 <img
                   src="/assets/pokecatch.png"
@@ -85,7 +85,7 @@ const DetailComponent: FC<Props> = ({ props }) => {
               </div>
             </div>
           </div>
-          <div className="card w-9/12 px-6 py-3">
+          <div className="card w-full lg:w-9/12 px-6 py-3">
             <div className="mb-8">
               <div
                 className={`home-switch px-1 py-2 flex justify-around items-center`}
@@ -117,31 +117,35 @@ const DetailComponent: FC<Props> = ({ props }) => {
               </div>
             </div>
             {isTab === 1 && (
-              <div className="w-2/3 mx-5">
-                <div className="grid grid-rows-1 grid-cols-2 gap-3 mb-3">
+              <div className="w-full lg:px-7">
+                <div className="grid grid-rows-1 grid-cols-3 gap-3 mb-3">
                   <p className="font-semi">Types</p>
-                  <div className="flex items-center ">
+                  <div className="flex  col-span-2 items-center ">
                     {pokemon?.types.map((type, index) => (
                       <div
                         key={index}
-                        className="bg-yellow-400 px-3 text-base text-black-0 rounded-md mr-2"
+                        className="bg-yellow-200 px-3 text-base text-black-0 rounded-md mr-2"
                       >
                         {upperCase(type.type.name)}
                       </div>
                     ))}
                   </div>
                 </div>
-                <div className="grid grid-rows-1 grid-cols-2 gap-3 mb-3">
+                <div className="grid grid-rows-1 grid-cols-3 gap-3 mb-3">
                   <p className="font-semi">Height</p>
-                  <p>{autom(pokemon?.height ?? 0)} (m)</p>
+                  <p className="col-span-2">
+                    {autom(pokemon?.height ?? 0)} (m)
+                  </p>
                 </div>
-                <div className="grid grid-rows-1 grid-cols-2 gap-3 mb-3">
+                <div className="grid grid-rows-1 grid-cols-3 gap-3 mb-3">
                   <p className="font-semi">Weight</p>
-                  <p>{autom(pokemon?.weight ?? 0)} (kg)</p>
+                  <p className="col-span-2">
+                    {autom(pokemon?.weight ?? 0)} (kg)
+                  </p>
                 </div>
-                <div className="grid grid-rows-1 grid-cols-2 gap-3 mb-1">
+                <div className="grid grid-rows-1 grid-cols-3 gap-3 mb-1">
                   <p className="font-semi">Abilities</p>
-                  <div>
+                  <div className="col-span-2">
                     {pokemon?.abilities.map((ability, index) => (
                       <div className="flex items-center mb-3">
                         <img
@@ -151,7 +155,7 @@ const DetailComponent: FC<Props> = ({ props }) => {
                         />
                         <div
                           key={index}
-                          className="bg-yellow-400 w-fit px-3 text-base text-black-0 rounded-md mr-2"
+                          className="bg-yellow-200 w-fit px-3 text-base text-black-0 rounded-md mr-2"
                         >
                           {upperCase(ability.ability.name)}
                         </div>
@@ -159,14 +163,17 @@ const DetailComponent: FC<Props> = ({ props }) => {
                     ))}
                   </div>
                 </div>
-                <div className="grid grid-rows-1 grid-cols-2 gap-3 mb-3">
+                <div className="grid grid-rows-1 grid-cols-3 gap-3 mb-3">
                   <p className="font-semi">Experience</p>
-                  <p>{pokemon?.base_experience ?? 0} (Exp)</p>
+                  <p className="col-span-2">
+                    {pokemon?.base_experience ?? 0} (Exp)
+                  </p>
                 </div>
               </div>
             )}
+
             {isTab === 2 && (
-              <div className="w-full px-10">
+              <div className="w-full lg:px-10">
                 {pokemon?.stats.map((stat, index) => (
                   <div className="mb-3">
                     <div
@@ -186,7 +193,7 @@ const DetailComponent: FC<Props> = ({ props }) => {
                       <p className="font-semi ">{stat.base_stat}</p>
                     </div>
 
-                    <div className="relative w-full h-2 bg-yellow-100 ">
+                    <div className="relative w-full h-2 bg-red-100 rounded-lg ">
                       <div
                         className=" h-2 bg-yellow-400 rounded-lg"
                         style={{
@@ -196,6 +203,21 @@ const DetailComponent: FC<Props> = ({ props }) => {
                     </div>
                   </div>
                 ))}
+              </div>
+            )}
+
+            {isTab === 3 && (
+              <div className="overflow-y-scroll moves-scroll h-80 -mr-3">
+                <div className="grid grid-rows-1 grid-cols-3 gap-5 mb-3 pr-3">
+                  {pokemon?.moves.map((move, index) => (
+                    <div
+                      key={index}
+                      className="border border-dashed py-2 hover:border-yellow-400"
+                    >
+                      <p className="text-center text-sm">{move.move.name}</p>
+                    </div>
+                  ))}
+                </div>
               </div>
             )}
           </div>
