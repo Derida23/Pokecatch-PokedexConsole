@@ -5,6 +5,7 @@ import { autoid, autom, upperCase, useWindowsSize } from "../../libs";
 import { IDetail } from "../../libs/interface";
 import { Button } from "../Main/Button";
 import Loader from "../Main/Loading";
+import TypePokemon from "./type";
 
 interface Props {
   props: PropsItems;
@@ -103,7 +104,7 @@ const DetailComponent: FC<Props> = ({ props }) => {
                   </div>
                 )}
               </div>
-              <div className="flex items-center justify-center mt-6 lg:mt-4">
+              <div className="flex items-center justify-center mt-6 lg:mt-4 z-20">
                 <div className="card-catch px-5 py-2 hover:bg-yellow-400 flex items-center justfy-between">
                   <img
                     src="/assets/pokecatch.png"
@@ -149,26 +150,21 @@ const DetailComponent: FC<Props> = ({ props }) => {
               </div>
               {isTab === 1 && (
                 <div className="w-full lg:px-7">
-                  <div className="grid grid-rows-1 grid-cols-3 gap-3 mb-3">
+                  <div className="grid grid-rows-1 grid-cols-3 gap-3 mb-5 lg:mb-3">
                     <p className="font-semi">Types</p>
                     <div className="flex  col-span-2 items-center ">
                       {pokemon?.types.map((type, index) => (
-                        <div
-                          key={index}
-                          className="bg-yellow-200 px-3 text-base text-black-0 rounded-md mr-2"
-                        >
-                          {upperCase(type.type.name)}
-                        </div>
+                        <TypePokemon props={{ index, type: type.type.name }} />
                       ))}
                     </div>
                   </div>
-                  <div className="grid grid-rows-1 grid-cols-3 gap-3 mb-3">
+                  <div className="grid grid-rows-1 grid-cols-3 gap-3 mb-5 lg:mb-3">
                     <p className="font-semi">Height</p>
                     <p className="col-span-2">
                       {autom(pokemon?.height ?? 0)} (m)
                     </p>
                   </div>
-                  <div className="grid grid-rows-1 grid-cols-3 gap-3 mb-3">
+                  <div className="grid grid-rows-1 grid-cols-3 gap-3 mb-5 lg:mb-3">
                     <p className="font-semi">Weight</p>
                     <p className="col-span-2">
                       {autom(pokemon?.weight ?? 0)} (kg)
@@ -178,7 +174,7 @@ const DetailComponent: FC<Props> = ({ props }) => {
                     <p className="font-semi">Abilities</p>
                     <div className="col-span-2">
                       {pokemon?.abilities.map((ability, index) => (
-                        <div className="flex items-center mb-3">
+                        <div className="flex items-center mb-5 lg:mb-3">
                           <img
                             src={"/assets/pikachu.png"}
                             alt="abilities"
@@ -194,7 +190,7 @@ const DetailComponent: FC<Props> = ({ props }) => {
                       ))}
                     </div>
                   </div>
-                  <div className="grid grid-rows-1 grid-cols-3 gap-3 mb-3">
+                  <div className="grid grid-rows-1 grid-cols-3 gap-3 mb-5 lg:mb-3">
                     <p className="font-semi">Experience</p>
                     <p className="col-span-2">
                       {pokemon?.base_experience ?? 0} (Exp)
@@ -206,7 +202,7 @@ const DetailComponent: FC<Props> = ({ props }) => {
               {isTab === 2 && (
                 <div className="w-full lg:px-10">
                   {pokemon?.stats.map((stat, index) => (
-                    <div className="mb-3">
+                    <div className="mb-5 lg:mb-3">
                       <div
                         key={index}
                         className="flex items-center justify-between mb-1"

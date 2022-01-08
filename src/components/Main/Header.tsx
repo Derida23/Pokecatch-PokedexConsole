@@ -18,7 +18,7 @@ const Header = () => {
           <img
             src="/assets/pokecatch.png"
             alt="logo-pokemon"
-            className="w-5 h-auto ml-3 cursor-pointer rotater linearer infiniter"
+            className="w-5 h-auto ml-3 cursor-pointer "
           />
         </div>
       </header>
