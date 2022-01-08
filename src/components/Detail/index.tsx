@@ -143,7 +143,7 @@ const DetailComponent: FC<Props> = ({ props }) => {
                       isTab === 1 ? "home-switch-active  " : ""
                     }  cursor-pointer py-1 px-5 `}
                   >
-                    About
+                    About{" "}
                   </div>
                   <div
                     onClick={() => onTab(2)}
