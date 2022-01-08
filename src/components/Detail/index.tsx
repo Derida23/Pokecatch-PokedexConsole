@@ -3,7 +3,7 @@ import React, { FC } from "react";
 import { Helmet } from "react-helmet";
 import { useLocation } from "react-router-dom";
 import { autoid, autom, upperCase, useWindowsSize } from "../../libs";
-import { ICookies, IDetail } from "../../libs/interface";
+import { IDetail } from "../../libs/interface";
 import { Button } from "../Main/Button";
 import Loader from "../Main/Loading";
 import TypePokemon from "./type";

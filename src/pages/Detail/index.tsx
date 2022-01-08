@@ -3,7 +3,7 @@ import React, { ChangeEvent, useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import { DETAIL_POKEMON } from "../../api/Queries";
 import DetailComponent from "../../components/Detail";
-import CatchModal from "../../components/Main/Modal/CatchModal";
+import PokeModal from "../../components/Main/Modal/PokeModal";
 import { getCookies, setCookies, upperCase } from "../../libs";
 import { ICookies, IDetail } from "../../libs/interface";
 
@@ -137,7 +137,7 @@ const DetailPage: React.FC = () => {
 
   return (
     <div>
-      <CatchModal
+      <PokeModal
         isOpen={catchOpen}
         onClose={() => {
           setCatchOpen(false);
