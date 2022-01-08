@@ -10,6 +10,7 @@ import {
   InMemoryCache,
   NormalizedCacheObject,
 } from "@apollo/client";
+import { RouterControl } from "./router/router";
 
 const client: ApolloClient<NormalizedCacheObject> = new ApolloClient({
   uri: process.env.REACT_APP_GQL_URL,
@@ -19,7 +20,7 @@ const client: ApolloClient<NormalizedCacheObject> = new ApolloClient({
 ReactDOM.render(
   <React.StrictMode>
     <ApolloProvider client={client}>
-      <ListPage />
+      <RouterControl />
     </ApolloProvider>
   </React.StrictMode>,
 

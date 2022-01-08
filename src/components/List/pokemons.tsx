@@ -1,4 +1,5 @@
 import React, { FC } from "react";
+import { useNavigate } from "react-router-dom";
 import { autoid, upperCase } from "../../libs";
 import { IPokemons } from "../../libs/interface";
 import Loader from "../Main/Loading";
@@ -14,12 +15,14 @@ interface PropsItems {
 
 const Pokemons: FC<Props> = ({ props }) => {
   const { pokemons, loading } = props;
+  const history = useNavigate();
 
   return (
     <div className="grid grid-rows-1 grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-8 lg:gap-14 mb-8">
       {pokemons.length > 0 &&
         pokemons.map((item, index) => (
           <div
+            onClick={() => history(`/pokemon/${item.name}`)}
             key={index}
             className="card-pokemon p-8 lg:p-10 relative flex items-center justify-between hover:text-yellow-500"
           >

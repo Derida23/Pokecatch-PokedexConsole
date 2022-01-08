@@ -1,7 +1,8 @@
 import React from "react";
+import DetailComponent from "../../components/Detail";
 
-const DetailPage = () => {
-  return <div>Halaman Detail</div>;
+const DetailPage: React.FC<any> = () => {
+  return <DetailComponent />;
 };
 
 export default DetailPage;
