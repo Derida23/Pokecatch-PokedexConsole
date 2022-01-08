@@ -13,7 +13,6 @@ export const RouterControl = () => {
         <Route path="/" element={<ListPage />} />
         <Route path="/pokemon/:id" element={<DetailPage />} />
       </Routes>
-      <Footer />
     </Router>
   );
 };
