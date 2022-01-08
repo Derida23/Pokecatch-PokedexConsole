@@ -30,7 +30,7 @@ const ListComponent: FC<Props> = ({ props }) => {
         <title>
           List Pokemon | Pokecatch | Catch A Wild Pokemon | Tokopedia
         </title>
-        <link rel="Pokecatch" href="" />
+        <link rel="Pokecatch" href="https://pokecatch-tokopedia.netlify.app/" />
       </Helmet>
 
       {/* List Pokemon */}
@@ -45,7 +45,7 @@ const ListComponent: FC<Props> = ({ props }) => {
         </InfiniteScrollWeb>
         {size.width > 640 ? (
           <div className="flex items-center justify-center mb-5">
-            <Button onClick={() => onPage(filter.page + 1)}>
+            <Button disabled={loading} onClick={() => onPage(filter.page + 1)}>
               {loading ? (
                 <div className="flex items-center ">
                   <img

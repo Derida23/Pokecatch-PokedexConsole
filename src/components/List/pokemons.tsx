@@ -45,7 +45,7 @@ const Pokemons: FC<Props> = ({ props }) => {
 
             {loading && <Loader props={{ text: false }} />}
 
-            <div className="absolute z-index-10 -top-5 lg:-top-12 right-0 lg:-right-5 ">
+            <div className="absolute z-10 -top-5 lg:-top-12 right-0 lg:-right-5 ">
               <img
                 src={"/assets/poke-shadow.png"}
                 alt="pokeball"
@@ -53,11 +53,11 @@ const Pokemons: FC<Props> = ({ props }) => {
               />
             </div>
 
-            <div className="absolute z-index-10 top-8 -left-0 ">
+            <div className="absolute z-10 top-8 -left-0 ">
               <img src={"/assets/dots.svg"} alt="dots" className="w-24" />
             </div>
 
-            <div className="absolute z-index-10 -top-8 lg:-top-14 -right-1 lg:-right-5 ">
+            <div className="absolute z-10 -top-8 lg:-top-14 -right-1 lg:-right-5 ">
               {!loading && (
                 <img
                   src={item?.artwork ?? ""}

@@ -61,6 +61,12 @@ export const autoid = (id: number) => {
   return ans;
 };
 
+export const autom = (id: number) => {
+  const result = id / 10;
+
+  return result;
+};
+
 export const upperCase = (text: string) => {
   const string = text.toString();
   let splitString = string.toLowerCase().split(" ");

@@ -2,6 +2,7 @@ import { useQuery } from "@apollo/client";
 import React, { useState } from "react";
 import { GET_POKEMONS } from "../../api/Queries";
 import ListComponent from "../../components/List";
+import { Button } from "../../components/Main/Button";
 import { IFilterGet, IListPokemon, IPokemons } from "../../libs/interface";
 
 const ListPage: React.FC = () => {

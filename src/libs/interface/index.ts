@@ -23,3 +23,35 @@ export interface IPokemons {
   artwork: string;
   dreamworld: string;
 }
+
+export interface IDetail {
+  id: number;
+  name: string;
+  base_experience: number;
+  height: number;
+  weight: number;
+  stats: Array<{
+    base_stat: number;
+    effort: number;
+    stat: {
+      name: string;
+    };
+  }>;
+  abilities: Array<{
+    ability: {
+      name: string;
+    };
+  }>;
+  moves: Array<{
+    move: {
+      name: string;
+    };
+  }>;
+  types: Array<{
+    type: {
+      name: string;
+    };
+  }>;
+  message?: string;
+  status: boolean;
+}
