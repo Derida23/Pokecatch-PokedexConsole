@@ -43,6 +43,23 @@ code {
     monospace;
 }
 
+.ant-modal-content {
+  border-radius: 25px !important;
+}
+
+.ant-input-lg {
+  border-radius: 10px !important;
+}
+
+.ant-input:focus {
+  border-color: rgb(237, 189, 0) !important;
+  box-shadow: 0 0 0 2px rgba(205, 255, 24, 0.2) !important;
+}
+
+.ant-input:hover {
+  border-color: rgb(237, 189, 0) !important;
+}
+
 .h-screen-m {
   height: 25vh;
 }

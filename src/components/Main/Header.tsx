@@ -13,7 +13,10 @@ const Header = () => {
             className="w-32 lg:w-36 h-auto -mt-4 cursor-pointer"
           />
         </div>
-        <div className="card-catch px-5 py-2 hover:bg-yellow-400 flex items-center justfy-between">
+        <div
+          onClick={() => history("/pokedex")}
+          className="card-catch px-5 py-2 hover:bg-yellow-400 flex items-center justfy-between"
+        >
           <p className="font-semi ">0 Catch</p>
           <img
             src="/assets/pokecatch.png"

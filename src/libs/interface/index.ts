@@ -55,3 +55,9 @@ export interface IDetail {
   message?: string;
   status: boolean;
 }
+
+export interface ICookies {
+  id: number;
+  name: string;
+  nickname: string;
+}

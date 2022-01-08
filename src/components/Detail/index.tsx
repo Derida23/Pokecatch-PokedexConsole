@@ -16,10 +16,11 @@ interface PropsItems {
   pokemon: IDetail | null;
   isTab: number;
   onTab: (tab: number) => void;
+  onCatch: () => void;
 }
 
 const DetailComponent: FC<Props> = ({ props }) => {
-  const { loading, pokemon, isTab, onTab } = props;
+  const { loading, pokemon, isTab, onTab, onCatch } = props;
   const location = useLocation();
   const size = useWindowsSize();
 
@@ -104,7 +105,10 @@ const DetailComponent: FC<Props> = ({ props }) => {
                   </div>
                 )}
               </div>
-              <div className="flex items-center justify-center mt-6 lg:mt-4 z-20">
+              <div
+                onClick={onCatch}
+                className="flex items-center justify-center mt-6 lg:mt-4"
+              >
                 <div className="card-catch px-5 py-2 hover:bg-yellow-400 flex items-center justfy-between">
                   <img
                     src="/assets/pokecatch.png"
@@ -235,7 +239,7 @@ const DetailComponent: FC<Props> = ({ props }) => {
 
               {isTab === 3 && (
                 <div className="overflow-y-scroll moves-scroll h-80 -mr-3">
-                  <div className="grid grid-rows-1 grid-cols-3 gap-5 mb-3 pr-3">
+                  <div className="grid grid-rows-1 grid-cols-2 lg:grid-cols-3 gap-5 mb-3 pr-3">
                     {pokemon?.moves.map((move, index) => (
                       <div
                         key={index}

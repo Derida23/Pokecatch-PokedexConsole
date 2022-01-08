@@ -13,9 +13,7 @@ interface PropsItems {
 
 const TypePokemon: React.FC<Props> = ({ props }) => {
   const { index, type } = props;
-  const color: string = `t${type}`;
 
-  console.log(color);
   return (
     <div
       key={index}
