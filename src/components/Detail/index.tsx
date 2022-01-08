@@ -1,8 +1,9 @@
+import { Tooltip } from "antd";
 import React, { FC } from "react";
 import { Helmet } from "react-helmet";
 import { useLocation } from "react-router-dom";
 import { autoid, autom, upperCase, useWindowsSize } from "../../libs";
-import { IDetail } from "../../libs/interface";
+import { ICookies, IDetail } from "../../libs/interface";
 import { Button } from "../Main/Button";
 import Loader from "../Main/Loading";
 import TypePokemon from "./type";
@@ -17,10 +18,11 @@ interface PropsItems {
   isTab: number;
   onTab: (tab: number) => void;
   onCatch: () => void;
+  owned: boolean;
 }
 
 const DetailComponent: FC<Props> = ({ props }) => {
-  const { loading, pokemon, isTab, onTab, onCatch } = props;
+  const { loading, pokemon, isTab, onTab, onCatch, owned } = props;
   const location = useLocation();
   const size = useWindowsSize();
 
@@ -83,11 +85,20 @@ const DetailComponent: FC<Props> = ({ props }) => {
                       </p>
                       {/* Name Pokemon */}
                       <div className="flex items-center justify-center">
-                        <img
-                          src={"/assets/pokesmall.png"}
-                          alt="pokesmall"
-                          className="mr-2"
-                        />
+                        <Tooltip
+                          defaultVisible={owned}
+                          placement="bottom"
+                          title="owned"
+                          visible={owned}
+                        >
+                          <img
+                            src={`/assets/${
+                              owned ? "pokeactive" : "pokesmall"
+                            }.png`}
+                            alt="pokesmall"
+                            className="mr-2"
+                          />
+                        </Tooltip>
                         <p className="font-extra text-3xl tracking-widest text-black-0">
                           {upperCase(location.pathname.split("/")[2])}
                         </p>

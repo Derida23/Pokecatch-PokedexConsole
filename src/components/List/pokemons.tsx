@@ -1,7 +1,7 @@
 import React, { FC } from "react";
 import { useNavigate } from "react-router-dom";
 import { autoid, upperCase } from "../../libs";
-import { IPokemons } from "../../libs/interface";
+import { ICookies, IPokemons } from "../../libs/interface";
 import Loader from "../Main/Loading";
 
 interface Props {
@@ -11,10 +11,11 @@ interface Props {
 interface PropsItems {
   pokemons: Array<IPokemons>;
   loading: boolean;
+  monCookies: Array<ICookies> | null;
 }
 
 const Pokemons: FC<Props> = ({ props }) => {
-  const { pokemons, loading } = props;
+  const { pokemons, loading, monCookies } = props;
   const history = useNavigate();
 
   return (
@@ -45,6 +46,19 @@ const Pokemons: FC<Props> = ({ props }) => {
 
             {loading && <Loader props={{ text: false }} />}
 
+            {monCookies && (
+              <div className="absolute z-10 top-3 left-3">
+                {monCookies?.filter((it: { id: number }) => it.id === item.id)
+                  .length === 0 ? null : (
+                  <img
+                    src={`/assets/pokeactive.png`}
+                    alt="pokesmall"
+                    className="mr-2 w-5 lg:w-auto"
+                  />
+                )}
+              </div>
+            )}
+
             <div className="absolute z-10 -top-5 lg:-top-12 right-0 lg:-right-5 ">
               <img
                 src={"/assets/poke-shadow.png"}
@@ -53,7 +67,7 @@ const Pokemons: FC<Props> = ({ props }) => {
               />
             </div>
 
-            <div className="absolute z-10 top-8 -left-0 ">
+            <div className="absolute z-10 top-12 -left-0 ">
               <img src={"/assets/dots.svg"} alt="dots" className="w-24" />
             </div>
 

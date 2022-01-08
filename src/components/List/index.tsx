@@ -1,6 +1,11 @@
 import React, { FC } from "react";
 import { useWindowsSize } from "../../libs";
-import { IFilterGet, IListPokemon, IPokemons } from "../../libs/interface";
+import {
+  ICookies,
+  IFilterGet,
+  IListPokemon,
+  IPokemons,
+} from "../../libs/interface";
 import { Button } from "../Main/Button";
 import { Helmet } from "react-helmet";
 import { InfiniteScrollWeb } from "../Main/Scroll";
@@ -16,10 +21,11 @@ interface PropsItems {
   loading: boolean;
   filter: IFilterGet;
   onPage: (page: number) => void;
+  monCookies: Array<ICookies> | null;
 }
 
 const ListComponent: FC<Props> = ({ props }) => {
-  const { pokemons, loading, filter, onPage } = props;
+  const { pokemons, loading, filter, onPage, monCookies } = props;
   const size = useWindowsSize();
 
   return (
@@ -41,7 +47,7 @@ const ListComponent: FC<Props> = ({ props }) => {
           onBottomHit={() => onPage(filter.page + 1)}
           loadOnMount={true}
         >
-          <Pokemons props={{ pokemons, loading }} />
+          <Pokemons props={{ pokemons, loading, monCookies }} />
         </InfiniteScrollWeb>
         {size.width > 640 ? (
           <div className="flex items-center justify-center mb-5">

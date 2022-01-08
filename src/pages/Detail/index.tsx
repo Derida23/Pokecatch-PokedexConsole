@@ -19,6 +19,7 @@ const DetailPage: React.FC = () => {
 
   const [pokemon, setPokemon] = useState<IDetail | null>(null);
   const [monCookies, setMonCookies] = useState<Array<ICookies> | null>(null);
+  const [owned, setOwned] = useState<boolean>(false);
   const [isTab, setTab] = useState<number>(1);
 
   // const [isCatch, setCatch] = useState<boolean>(false);
@@ -38,7 +39,18 @@ const DetailPage: React.FC = () => {
     setPokemon(data.pokemon);
 
     const temporary = await getCookies("__UUPK");
-    setMonCookies(JSON.parse(temporary));
+
+    if (temporary) {
+      const field: Array<ICookies> = JSON.parse(temporary).filter(
+        (item: { name: string }) =>
+          item.name === location.pathname.split("/")[2]
+      );
+
+      if (field.length > 0) {
+        setOwned(true);
+      }
+      setMonCookies(JSON.parse(temporary));
+    }
   };
 
   const onTab = (tab: number) => {
@@ -140,7 +152,9 @@ const DetailPage: React.FC = () => {
         isError={isError}
         onInput={(e) => onInput(e)}
       />
-      <DetailComponent props={{ loading, pokemon, isTab, onTab, onCatch }} />
+      <DetailComponent
+        props={{ loading, pokemon, isTab, onTab, onCatch, owned }}
+      />
     </div>
   );
 };
