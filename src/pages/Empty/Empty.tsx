@@ -18,7 +18,7 @@ const EmptyPage = () => {
             <div className="flex items-center justify-center">
               <img src={"/assets/poke-shadow.png"} alt="pokeball" />
             </div>
-            <p className="font-semi text-6xl text-center my-10">404</p>
+            <p className="font-semi text-6xl text-center my-10">4 0 4</p>
             <div className="flex items-center justify-center">
               <div
                 onClick={() => history("/")}
