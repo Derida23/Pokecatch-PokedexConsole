@@ -27,6 +27,7 @@ Pokecatch - Pokedex Power is A site that provides a group or many types of pokem
 | State Global Management | [Zustand](https://zustand.surge.sh/) |
 | Encrypt Key | [Crypto Javascript](https://www.npmjs.com/package/crypto-js) |
 | Build | [Vercel](https://vercel.com/dashboard) |
+| Test Performance | [Lighthouse](https://developers.google.com/web/tools/lighthouse?hl=id) |
 
 And many more, you can see them in `package.json`
 
