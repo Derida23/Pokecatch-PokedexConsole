@@ -34,7 +34,7 @@ const ListComponent: FC<Props> = ({ props }) => {
       <Helmet>
         <meta charSet="utf-8" />
         <title>List Pokemon | Pokecatch | Catch A Wild Pokemon</title>
-        <link rel="Pokecatch" href="https://pokecatch-tokopedia.netlify.app/" />
+        <link rel="Pokecatch" href="https://pokedex-power.vercel.app/" />
       </Helmet>
 
       {/* List Pokemon */}

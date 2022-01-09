@@ -27,7 +27,7 @@ const DexComponent: FC<Props> = ({ props }) => {
       <Helmet>
         <meta charSet="utf-8" />
         <title>My Pokemon List | Pokecatch | Catch A Wild Pokemon</title>
-        <link rel="Pokecatch" href="https://pokecatch-tokopedia.netlify.app/" />
+        <link rel="Pokecatch" href="https://pokedex-power.vercel.app/" />
       </Helmet>
       <main>
         <div className="flex items-center justify-center lg:justify-end">

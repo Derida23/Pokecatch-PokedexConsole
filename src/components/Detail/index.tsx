@@ -31,7 +31,7 @@ const DetailComponent: FC<Props> = ({ props }) => {
         <title>
           {upperCase(pokemon?.name ?? "Invalid")} | Catch A Wild Pokemon
         </title>
-        <link rel="Pokecatch" href="https://pokecatch-tokopedia.netlify.app/" />
+        <link rel="Pokecatch" href="https://pokedex-power.vercel.app/" />
       </Helmet>
       {loading ? (
         size.width > 640 ? (
