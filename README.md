@@ -1,46 +1,53 @@
-# Getting Started with Create React App
+<p align="center">
+  <img width="400" src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/98/International_Pok%C3%A9mon_logo.svg/2560px-International_Pok%C3%A9mon_logo.svg.png">
+</p>
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Overview
+<p align="justify">
+Pokecatch - Pokedex Power is A site that provides a group or many types of pokemon that can be obtained from `Poke-API` where you can see the pokemon in the TV series as a child. use a mockup design in **Figma** that I made and display a **Responsive Website** (mobile or website)</p>
 
-## Available Scripts
+<p align="center">
+    <img src="https://img.shields.io/badge/-Frontend-red?style=for-the-badge&logo=">
+    <img src="https://img.shields.io/badge/-Typescript-blue?style=for-the-badge&logo=">
+    <img src="https://img.shields.io/badge/-React Hook-purple?style=for-the-badge&logo=">
+</p>
 
-In the project directory, you can run:
+<p align="center">
+**LIVE LINK : ** https://pokedex-power.vercel.app/
+</p>
 
-### `yarn start`
+## Technology
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+| Use | Name |
+| --- | --- |
+| Mockup Design / Wireframe | [Figma](https://www.figma.com/file/CxQBq8rmRMOyN77Cg88Mmz/Pokedex-Power-%7C-Pokecatch?node-id=0%3A1) |
+| GraphQL | [Graphql Poke Api](https://github.com/mazipan/graphql-pokeapi) |
+| CSS/SCSS | [Emotion](https://emotion.sh/docs/introduction) & [Tailwind](https://tailwindcss.com/) |
+| Unit Testing | [Jest](https://jestjs.io/)* |
+| State Global Management | [Zustand](https://zustand.surge.sh/) |
+| Encrypt Key | [Crypto Javascript](https://www.npmjs.com/package/crypto-js) |
+| Build | [Vercel](https://vercel.com/dashboard) |
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+And many more, you can see them in `package.json`
 
-### `yarn test`
+<i>*on progress</i>
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Features
+- List Pokemon
+- Detail Pokemon
+- Catch Pokemon
+- My Pokemon
 
-### `yarn build`
+## Get Started
+1. Clone Repository
+2. Open command prompt / terminal directory
+3. Write `yarn install` and waiting
+4. Create `.env` file 
+5. `yarn start` to start project 
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `yarn eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
+### ENV Setup
+```
+REACT_APP_GQL_URL = https://graphql-pokeapi.vercel.app/api/graphql
+REACT_APP_SECRET_KEY = SALT / SECRET-KEY
+REACT_APP_ARTWORK = https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/
+```
