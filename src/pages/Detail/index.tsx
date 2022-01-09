@@ -75,7 +75,7 @@ const DetailPage: React.FC = () => {
         // If Pokemon Catch
         setAlert(`Wow You Catch ${upperCase(pokemon?.name ?? "")}...`);
       }
-    }, 3000);
+    }, 2500);
   };
 
   const onProb = () => {
@@ -108,7 +108,10 @@ const DetailPage: React.FC = () => {
       addTotal();
       setTimeout(() => {
         setCatchOpen(false);
-        // history("/pokedex");
+
+        setTimeout(() => {
+          history("/pokedex");
+        }, 1000);
       }, 2000);
     }
   };
@@ -117,7 +120,9 @@ const DetailPage: React.FC = () => {
     const { value } = e.target;
     const param = pokemon?.name ?? "";
 
-    setNickname(value);
+    if (value.length <= 16) {
+      setNickname(value);
+    }
 
     if (monCookies) {
       const field = monCookies.filter(

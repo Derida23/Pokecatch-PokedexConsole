@@ -2,6 +2,7 @@ import React, { FC } from "react";
 import { Helmet } from "react-helmet";
 import { useNavigate } from "react-router-dom";
 import { ICookies } from "../../libs/interface";
+import History from "./history";
 import Owned from "./own";
 
 interface Props {
@@ -10,11 +11,14 @@ interface Props {
 
 interface PropsItems {
   pokemons: Array<ICookies> | null;
+  release: Array<ICookies> | null;
   onRelease: (index: number) => void;
+  isTab: number;
+  onTab: (tab: number) => void;
 }
 
 const DexComponent: FC<Props> = ({ props }) => {
-  const { pokemons, onRelease } = props;
+  const { pokemons, release, onRelease, isTab, onTab } = props;
 
   const history = useNavigate();
 
@@ -28,18 +32,38 @@ const DexComponent: FC<Props> = ({ props }) => {
         <link rel="Pokecatch" href="https://pokecatch-tokopedia.netlify.app/" />
       </Helmet>
       <main>
-        {pokemons ? (
-          <div>
-            <Owned props={{ pokemons, loading: false, onRelease }} />
+        <div className="flex items-center justify-center lg:justify-end">
+          <div className="home-switch -mt-8 mb-8 lg:-mt-24 lg:mb-16 w-fit px-4 py-2 flex justify-around items-center">
+            <div
+              onClick={() => onTab(1)}
+              className={`${
+                isTab === 1 ? "home-switch-active  " : ""
+              }  cursor-pointer py-1 px-5 `}
+            >
+              Keep
+            </div>
+            <div
+              onClick={() => onTab(2)}
+              className={`${
+                isTab === 2 ? "home-switch-active  " : ""
+              } cursor-pointer py-1 px-5 `}
+            >
+              History
+            </div>
           </div>
+        </div>
+        {isTab === 1 && pokemons ? (
+          <Owned props={{ pokemons, loading: false, onRelease }} />
+        ) : isTab === 2 && release ? (
+          <History props={{ pokemons: release, loading: false }} />
         ) : (
           <div className="flex items-center justify-center h-screen-m ">
-            <div className="mt-44 lg:mt-0">
+            <div className="mt-44 lg:mt-14">
               <div className="flex items-center justify-center">
                 <img src={"/assets/poke-shadow.png"} alt="pokeball" />
               </div>
               <p className="font-semi text-lg text-center my-5">
-                you don't have a pokemon yet
+                you don't have a {isTab === 2 && "history "} pokemon yet
               </p>
               <div className="flex items-center justify-center">
                 <div
