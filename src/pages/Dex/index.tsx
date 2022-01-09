@@ -1,10 +1,12 @@
 import React, { useEffect, useState } from "react";
+import { useStore } from "../../api/Store";
 import DexComponent from "../../components/Dex";
 import { deleteCookies, getCookies, setCookies } from "../../libs";
 import { ICookies } from "../../libs/interface";
 
 const DexPage = () => {
   const [pokemons, setPokemons] = useState<Array<ICookies> | null>(null);
+  const { minTotal } = useStore();
 
   useEffect(() => {
     GetPokemon();
@@ -30,6 +32,7 @@ const DexPage = () => {
     } else {
       await GetPokemon();
     }
+    minTotal();
   };
 
   return <DexComponent props={{ pokemons, onRelease }} />;
