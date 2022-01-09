@@ -1,7 +1,6 @@
 import { Tooltip } from "antd";
 import React, { FC } from "react";
 import { Helmet } from "react-helmet";
-import { useLocation } from "react-router-dom";
 import { autoid, autom, upperCase, useWindowsSize } from "../../libs";
 import { IDetail } from "../../libs/interface";
 import { Button } from "../Main/Button";
@@ -23,7 +22,6 @@ interface PropsItems {
 
 const DetailComponent: FC<Props> = ({ props }) => {
   const { loading, pokemon, isTab, onTab, onCatch, owned } = props;
-  const location = useLocation();
   const size = useWindowsSize();
 
   return (
@@ -31,7 +29,7 @@ const DetailComponent: FC<Props> = ({ props }) => {
       <Helmet>
         <meta charSet="utf-8" />
         <title>
-          {upperCase(location.pathname.split("/")[2])} | Catch A Wild Pokemon |
+          {upperCase(pokemon?.name ?? "Invalid")} | Catch A Wild Pokemon |
           Tokopedia
         </title>
         <link rel="Pokecatch" href="https://pokecatch-tokopedia.netlify.app/" />
@@ -100,7 +98,7 @@ const DetailComponent: FC<Props> = ({ props }) => {
                           />
                         </Tooltip>
                         <p className="font-extra text-3xl tracking-widest text-black-0">
-                          {upperCase(location.pathname.split("/")[2])}
+                          {upperCase(pokemon?.name ?? "")}
                         </p>
                       </div>
                     </div>
@@ -126,9 +124,7 @@ const DetailComponent: FC<Props> = ({ props }) => {
                     alt="logo-pokemon"
                     className="w-8 h-auto mr-2 cursor-pointer animate-bounce"
                   />
-                  <p className="font-semi ">
-                    Catch {upperCase(location.pathname.split("/")[2])}
-                  </p>
+                  <p className="font-semi ">Catch {pokemon?.name ?? ""}</p>
                 </div>
               </div>
             </div>

@@ -2,6 +2,7 @@ import { useQuery } from "@apollo/client";
 import React, { ChangeEvent, useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import { DETAIL_POKEMON } from "../../api/Queries";
+import { useStore } from "../../api/Store";
 import DetailComponent from "../../components/Detail";
 import PokeModal from "../../components/Main/Modal/PokeModal";
 import { getCookies, setCookies, upperCase } from "../../libs";
@@ -16,6 +17,7 @@ const DetailPage: React.FC = () => {
   const location = useLocation();
   const history = useNavigate();
   const DEFAULT_ALERT = "Throwing Pokeball...";
+  const { addTotal } = useStore();
 
   const [pokemon, setPokemon] = useState<IDetail | null>(null);
   const [monCookies, setMonCookies] = useState<Array<ICookies> | null>(null);
@@ -33,6 +35,7 @@ const DetailPage: React.FC = () => {
     variables: { name: location.pathname.split("/")[2] },
     fetchPolicy: "network-only",
     onCompleted: async () => await GetPokemon(),
+    onError: (error) => errorHandler(error.message),
   });
 
   const GetPokemon = async () => {
@@ -42,14 +45,22 @@ const DetailPage: React.FC = () => {
 
     if (temporary) {
       const field: Array<ICookies> = JSON.parse(temporary).filter(
-        (item: { name: string }) =>
-          item.name === location.pathname.split("/")[2]
+        (item: { name: string }) => item.name === data?.pokemon?.name ?? ""
       );
 
       if (field.length > 0) {
         setOwned(true);
       }
       setMonCookies(JSON.parse(temporary));
+    }
+  };
+
+  const errorHandler = (message: string) => {
+    console.log(message);
+    if (message === "Request failed with status code 404") {
+      history("/404");
+    } else {
+      history("/error-connection");
     }
   };
 
@@ -64,7 +75,7 @@ const DetailPage: React.FC = () => {
     setTimeout(() => {
       if (!prob) {
         // If Pokemon Cant Catch or Run
-        setAlert(`Oops ${upperCase(location.pathname.split("/")[2])} Run...`);
+        setAlert(`Oops ${upperCase(pokemon?.name ?? "")} Run...`);
 
         setTimeout(() => {
           setCatchOpen(false);
@@ -72,11 +83,9 @@ const DetailPage: React.FC = () => {
         }, 2000);
       } else {
         // If Pokemon Catch
-        setAlert(
-          `Wow You Catch ${upperCase(location.pathname.split("/")[2])}...`
-        );
+        setAlert(`Wow You Catch ${upperCase(pokemon?.name ?? "")}...`);
       }
-    }, 3000);
+    }, 2500);
   };
 
   const onProb = () => {
@@ -106,19 +115,24 @@ const DetailPage: React.FC = () => {
       }
 
       setAlert("Well Done, Check My Pokemon List...");
-
+      addTotal();
       setTimeout(() => {
         setCatchOpen(false);
-        history("/pokedex");
+
+        setTimeout(() => {
+          history("/pokedex");
+        }, 1000);
       }, 2000);
     }
   };
 
   const onInput = (e: ChangeEvent<HTMLInputElement>) => {
     const { value } = e.target;
-    const param = location.pathname.split("/")[2];
+    const param = pokemon?.name ?? "";
 
-    setNickname(value);
+    if (value.length <= 16) {
+      setNickname(value);
+    }
 
     if (monCookies) {
       const field = monCookies.filter(

@@ -1,5 +1,6 @@
 import { useQuery } from "@apollo/client";
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { GET_POKEMONS } from "../../api/Queries";
 import ListComponent from "../../components/List";
 import { getCookies } from "../../libs";
@@ -11,6 +12,7 @@ import {
 } from "../../libs/interface";
 
 const ListPage: React.FC = () => {
+  const history = useNavigate();
   const [master, setMaster] = useState<IListPokemon>({});
   const [pokemons, setPokemons] = useState<Array<IPokemons>>([]);
   const [monCookies, setMonCookies] = useState<Array<ICookies> | null>(null);
@@ -25,6 +27,7 @@ const ListPage: React.FC = () => {
     variables: { limit: filter.limit, offset: filter.offset },
     fetchPolicy: "network-only",
     onCompleted: async () => await GetPokemons(),
+    onError: (error) => errorHandler(error.message),
   });
 
   const GetPokemons = async () => {
@@ -38,6 +41,15 @@ const ListPage: React.FC = () => {
 
     if (temporary) {
       setMonCookies(JSON.parse(temporary));
+    }
+  };
+
+  const errorHandler = (message: string) => {
+    console.log(message);
+    if (message === "Request failed with status code 404") {
+      history("/404");
+    } else {
+      history("/error-connection");
     }
   };
 
