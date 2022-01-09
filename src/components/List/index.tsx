@@ -33,9 +33,7 @@ const ListComponent: FC<Props> = ({ props }) => {
       {/* Header */}
       <Helmet>
         <meta charSet="utf-8" />
-        <title>
-          List Pokemon | Pokecatch | Catch A Wild Pokemon | Tokopedia
-        </title>
+        <title>List Pokemon | Pokecatch | Catch A Wild Pokemon</title>
         <link rel="Pokecatch" href="https://pokecatch-tokopedia.netlify.app/" />
       </Helmet>
 
