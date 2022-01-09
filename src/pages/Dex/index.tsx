@@ -57,13 +57,12 @@ const DexPage = () => {
 
       vanilla.push(...receive);
       await setCookies("__UUPR", JSON.stringify(vanilla));
-
-      await GetPokemon();
     }
   };
 
-  const onTab = (tab: number) => {
+  const onTab = async (tab: number) => {
     setTab(tab);
+    await GetPokemon();
   };
 
   return (
