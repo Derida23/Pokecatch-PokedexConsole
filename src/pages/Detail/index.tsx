@@ -35,6 +35,7 @@ const DetailPage: React.FC = () => {
     variables: { name: location.pathname.split("/")[2] },
     fetchPolicy: "network-only",
     onCompleted: async () => await GetPokemon(),
+    onError: (error) => errorHandler(error.message),
   });
 
   const GetPokemon = async () => {
@@ -51,6 +52,15 @@ const DetailPage: React.FC = () => {
         setOwned(true);
       }
       setMonCookies(JSON.parse(temporary));
+    }
+  };
+
+  const errorHandler = (message: string) => {
+    console.log(message);
+    if (message === "Request failed with status code 404") {
+      history("/404");
+    } else {
+      history("/error-connection");
     }
   };
 

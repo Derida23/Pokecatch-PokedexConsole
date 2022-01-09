@@ -15,15 +15,15 @@ const DexPage = () => {
   }, []);
 
   const GetPokemon = async () => {
-    const temporary = await getCookies("__UUPK");
-    const vanilla = await getCookies("__UUPR");
+    const keep = await getCookies("__UUPK");
+    const history = await getCookies("__UUPR");
 
-    if (temporary) {
-      setPokemons(JSON.parse(temporary));
+    if (keep) {
+      setPokemons(JSON.parse(keep));
     }
 
-    if (vanilla) {
-      setRelease(JSON.parse(vanilla));
+    if (history) {
+      setRelease(JSON.parse(history));
     }
   };
 

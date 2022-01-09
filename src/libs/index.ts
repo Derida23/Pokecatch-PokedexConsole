@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import Cookies from "universal-cookie";
 
 const cookies = new Cookies();
+
 export const SALT: string | undefined = process.env.REACT_APP_SECRET_KEY;
 
 export const encrypt = async (hashed: string) => {
