@@ -9,9 +9,7 @@ const ErrorPage = () => {
     <div className="contianer mx-5 lg:mx-24 ">
       <Helmet>
         <meta charSet="utf-8" />
-        <title>
-          Error Connection | Pokecatch | Catch A Wild Pokemon | Tokopedia
-        </title>
+        <title>Error Connection | Pokecatch | Catch A Wild Pokemon</title>
         <link rel="Pokecatch" href="https://pokecatch-tokopedia.netlify.app/" />
       </Helmet>
       <main>

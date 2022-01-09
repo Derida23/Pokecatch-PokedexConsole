@@ -29,8 +29,7 @@ const DetailComponent: FC<Props> = ({ props }) => {
       <Helmet>
         <meta charSet="utf-8" />
         <title>
-          {upperCase(pokemon?.name ?? "Invalid")} | Catch A Wild Pokemon |
-          Tokopedia
+          {upperCase(pokemon?.name ?? "Invalid")} | Catch A Wild Pokemon
         </title>
         <link rel="Pokecatch" href="https://pokecatch-tokopedia.netlify.app/" />
       </Helmet>

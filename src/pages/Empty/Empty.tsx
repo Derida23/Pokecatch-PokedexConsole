@@ -9,7 +9,7 @@ const EmptyPage = () => {
     <div className="contianer mx-5 lg:mx-24 ">
       <Helmet>
         <meta charSet="utf-8" />
-        <title>404 Page | Pokecatch | Catch A Wild Pokemon | Tokopedia</title>
+        <title>404 Page | Pokecatch | Catch A Wild Pokemon </title>
         <link rel="Pokecatch" href="https://pokecatch-tokopedia.netlify.app/" />
       </Helmet>
       <main>
