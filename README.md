@@ -4,7 +4,7 @@
 
 ## Overview
 <p align="justify">
-Pokecatch - Pokedex Power is A site that provides a group or many types of pokemon that can be obtained from `Poke-API` where you can see the pokemon in the TV series as a child. use a mockup design in **Figma** that I made and display a **Responsive Website** (mobile or website)</p>
+Pokecatch - Pokedex Power is A site that provides a group or many types of pokemon that can be obtained from `Poke-API` where you can see the pokemon in the TV series as a child. use a mockup design in <b>Figma</b> that I made and display a <b>Responsive Website</b> (mobile or website)</p>
 
 <p align="center">
     <img src="https://img.shields.io/badge/-Frontend-red?style=for-the-badge&logo=">
@@ -13,7 +13,7 @@ Pokecatch - Pokedex Power is A site that provides a group or many types of pokem
 </p>
 
 <p align="center">
-**LIVE LINK : ** https://pokedex-power.vercel.app/
+  <b>LIVE LINK : </b> https://pokedex-power.vercel.app/
 </p>
 
 ## Technology
@@ -45,7 +45,7 @@ And many more, you can see them in `package.json`
 4. Create `.env` file 
 5. `yarn start` to start project 
 
-### ENV Setup
+#### ENV Setup
 ```
 REACT_APP_GQL_URL = https://graphql-pokeapi.vercel.app/api/graphql
 REACT_APP_SECRET_KEY = SALT / SECRET-KEY
