@@ -56,7 +56,6 @@ const DetailPage: React.FC = () => {
   };
 
   const errorHandler = (message: string) => {
-    console.log(message);
     if (message === "Request failed with status code 404") {
       history("/404");
     } else {
