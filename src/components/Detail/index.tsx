@@ -234,7 +234,7 @@ const DetailComponent: FC<Props> = ({ props }) => {
                         <div
                           className=" h-2 bg-yellow-400 rounded-lg"
                           style={{
-                            width: (stat.base_stat / 100) * 100 + "%",
+                            width: (stat.base_stat / 200) * 100 + "%",
                           }}
                         />
                       </div>

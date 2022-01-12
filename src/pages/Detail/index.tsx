@@ -32,7 +32,9 @@ const DetailPage: React.FC = () => {
 
   const { loading, data } = useQuery(DETAIL_POKEMON, {
     notifyOnNetworkStatusChange: true,
-    variables: { name: location.pathname.split("/")[2] },
+    variables: {
+      name: location.pathname.split("/")[2].toString().toLowerCase(),
+    },
     fetchPolicy: "network-only",
     onCompleted: async () => await GetPokemon(),
     onError: (error) => errorHandler(error.message),
